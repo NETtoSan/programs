@@ -1,0 +1,44 @@
+//DRAKO CODE EXAMPLES.
+
+import message                           //You can use "debug" to debug your variables, split with ;
+
+.runExample{
+      send           "HELLO!"                      //Send message "HELLO!"
+      create         "h"      as "hello"           //Literal sentence. put "Hello!" to variable "h"
+      send           "@h !"                        //Send "hello !" . @ Acts like `${}` in javascript
+      send           "@h there!"                   //hello there!. `${h} there!`
+}
+
+.AwaitMessageExample{
+      send           "What is 1+1?"
+      wait           "2"      as "MessageInput" "?" true_drako_code : false_drako_code               //Receive "2" from messages. True or false are being handled similar to js "true? true : false".
+                                                                                                       Run drako code for both true_drako_code and _false_drako_code
+      wait           "2"      as "MessageInput" "? @variable"   send "yes!" : send "no!"             //Send "yes!" if the statement is true. Also save the input to variable "variable"
+      wait           "2"      as "MessageInpu"  "?" jcn trueStatement : jcn falseStatement           //Jump to trueStatement if statement is true
+}
+
+.trueStatement{
+      send           "Yes!"
+}
+.falseStatement{
+      send           "No!"
+}
+
+create               "h"                           //Create "h"
+                     "h"  as %s                    //Create "h" specifically for String
+                             %a                                                  Arrays
+                             %o                                                  Objects
+                             %b                                                  Booleans
+                             "MessageEmbed"        //If as String is found in Discord.js class. Use that instead
+                             "HELLLLLLLLLO"        //If not then use string
+
+"MessageEmbed"            function     "String1?" "String2?" "String3?"        //If "MessageEmbed" is a class or one of discord classes. Execute as is its `MessageEmbed.function(...string)`
+
+add                   variable,number              //Add n number to target "variable"
+                      variable,@variable           //Add n number from imported variable to target "variable"
+
+jcn                   InstructionCode              //Look for .InstructionCode{} function and run it. A must have for complex programs.
+
+:[
+   console.log("Hello!")
+]:                                                                                                   // :[   ]:      -> Use this to run Javascript in the drako file itself
