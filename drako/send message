@@ -1,0 +1,14 @@
+import message                                             //send message
+create       "evar2"     as  "World!"
+create       "var"       as  "MessageEmbed"
+
+.sendMessage{
+       send                  "Hello!"                      //Hello!
+       send                  "Hello! @evar2"               //Hello! World!
+       send                  "@evar2"                      //World
+       send                  "@var"                        //MessageEmbed {}
+       send                  %b                            //false
+
+}
+
+jcn                 sendMessage
