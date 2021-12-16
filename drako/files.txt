@@ -1,0 +1,12 @@
+import           file                                                         //Import package
+create           "variable"                                                   //Create a variable to store something
+
+.READFILE{
+     file        from      "PATH"   to "variable"                             // let variable = fs.readdirSync("PATH")
+     file        from      "PATH"   to "variable"    look "hello"             // variable.forEach(file=>file == "hello")
+     file        from      "@PATH"  to "variable"                             // let variable = fs.readdirSync(PATH)
+     file        from      "PATH"   to "variable"    read "file"              // variable = fs.readfileSync(`${PATH}/${file}","utf8")
+}
+
+
+jcn  READFILE
