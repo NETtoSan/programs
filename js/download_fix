@@ -20,7 +20,7 @@ class dfile extends Programs{
         try{
             if(!args[1]) return message.channel.send(new discord.MessageEmbed().setTitle("Missing url!").setDescription("Enter file URL to use this program").setColor(0x33FFEC))
             let url = message.content.slice(args[0].length+1+args[1].length+1)
-            await download(url,"./system/etc/download")
+            await download(`${url}`,"system/etc/download")
     
             return message.channel.send(new discord.MessageEmbed().setTitle("Done!").setDescription("To move this to executables. Turn on XTerm and run ;mv <fileorigin> <destination>"))
         }
