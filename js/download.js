@@ -1,4 +1,4 @@
-const Programs = require('../base/programs')
+const Programs = require('../../base/programs')
 const discord = require('discord.js')
 const download = require('download')
 
