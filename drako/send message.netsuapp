@@ -2,13 +2,17 @@ import message                                             //send message
 create       "evar2"     as  "World!"
 create       "var"       as  "MessageEmbed"
 
+.MainThread{
+       syc                   0x000000, code_dumpmem
+       abt                   main_runtime, 0x000000        // This
+}   //MainThread normally executes by drako runtime as default
+
 .sendMessage{
-       send                  "Hello!"                      //Hello!
-       send                  "Hello! @evar2"               //Hello! World!
-       send                  "@evar2"                      //World
-       send                  "@var"                        //MessageEmbed {}
-       send                  %b                            //false
+       send                  "Hello!"                      // Hello!
+       send                  "Hello! @evar2"               // Hello! World!
+       send                  "@evar2"                      // World!
+       send                  "@var"                        // MessageEmbed {}
+       send                  %b                            // false ; as %b is set to false as default
+}   //SendMessage is not a default system call and need to explicitly call using mov
 
-}
-
-jcn                 sendMessage
+mov                 sendMessage
