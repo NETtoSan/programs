@@ -2,11 +2,6 @@ import message                                             //send message
 create       "evar2"     as  "World!"
 create       "var"       as  "MessageEmbed"
 
-.MainThread{
-       syc                   0x000000, code_dumpmem
-       abt                   main_runtime, 0x000000        // This
-}   //MainThread normally executes by drako runtime as default
-
 .sendMessage{
        send                  "Hello!"                      // Hello!
        send                  "Hello! @evar2"               // Hello! World!
