@@ -1,0 +1,6 @@
+use assembly
+
+add    teststring,"Hello world!"         ; create variable
+mov    ebx,'@teststring"                 ; ebx handles sending message feature
+mov    eax,1                             ; mimicks the way we write assembly code
+int    0x80                              ; also micks the way we write assembly code
