@@ -17,11 +17,17 @@ class dfile extends Programs{
         })
     }
     async run(message,args,bot){
-        if(!args[1]) return message.channel.send(new discord.MessageEmbed().setTitle("Missing url!").setDescription("Enter file URL to use this program").setColor(0x33FFEC))
-        let url = message.content.slice(args[0].length+1+args[1].length+1)
-        await download(url,"./system/etc/download")
-
-        return message.channel.send(new discord.MessageEmbed().setTitle("Done!").setDescription("To move this to executables. Turn on XTerm and run ;mv <fileorigin> <destination>"))
+        try{
+            if(!args[1]) return message.channel.send(new discord.MessageEmbed().setTitle("Missing url!").setDescription("Enter file URL to use this program").setColor(0x33FFEC))
+            let url = message.content.slice(args[0].length+1+args[1].length+1)
+            await download(`${url}`,"system/etc/download")
+    
+            return message.channel.send(new discord.MessageEmbed().setTitle("Done!").setDescription("To move this to executables. Turn on XTerm and run ;mv <fileorigin> <destination>"))
+        }
+        catch(err){
+            console.log(err)
+            return message.channel.send(new discord.MessageEmbed().setTitle("Error!").setDescription(`${new String(err)}`))
+        }
     }
 }
 
