@@ -1,5 +1,6 @@
 import           file                                                         //Import package
 create           "variable"                                                   //Create a variable to store something
+create           "PATH"   as "./"
 
 .READFILE{
      file        from      "PATH"   to "variable"                             // let variable = fs.readdirSync("PATH")
@@ -9,4 +10,4 @@ create           "variable"                                                   //
 }
 
 
-jcn  READFILE
+jmp  READFILE
