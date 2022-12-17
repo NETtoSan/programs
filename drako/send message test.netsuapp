@@ -8,5 +8,6 @@ int    0x80                              ; also micks the way we write assembly 
 
 
 mov    teststring,rga                    ;
+rga    apd,"hello"                       ; "Hello world!" + "hello"
 mov    eax,3                             ; mimicks message.channel.send()
 int    0x80                              ; 
