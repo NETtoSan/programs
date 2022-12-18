@@ -8,6 +8,6 @@ create       "var"       as  "MessageEmbed"
        send                  "@evar2"                      // World!
        send                  "@var"                        // MessageEmbed {}
        send                  %b                            // false ; as %b is set to false as default
-}   //SendMessage is not a default system call and need to explicitly call using mov
+}   //SendMessage is not a default system call and need to explicitly call using jmp
 
-mov                 sendMessage
+jmp                 sendMessage
