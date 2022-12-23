@@ -22,7 +22,9 @@ class dfile extends Programs{
             let url = message.content.slice(args[0].length+1+args[1].length+1)
             await download(`${url}`,"system/etc/download")
     
-            return message.channel.send(new discord.MessageEmbed().setTitle("Done!").setDescription("To move this to executables. Turn on XTerm and run ;mv <fileorigin> <destination>"))
+            return message.channel.send({
+                embed: new discord.MessageEmbed().setTitle("Done!").setDescription("To move this to executables. Turn on XTerm and run ;mv <fileorigin> <destination>")
+            })
         }
         catch(err){
             return message.channel.send(new discord.MessageEmbed().setTitle("Error!").setDescription(`${new String(err)}`))
